@@ -1,3 +1,5 @@
+import { enviarDatos } from "./operaciones.js";
+
 const obtenerDigimones = async() => {
     try{
         const response = await fetch("https://digimon-api.vercel.app/api/digimon");
@@ -47,6 +49,9 @@ const crearTarjetas = (digimones) =>{
         btnMostrar.classList.add("btn");
         btnMostrar.classList.add("btn-danger");
         btnMostrar.textContent= "Ver detalles";
+        btnMostrar.addEventListener("click", () => {
+            enviarDatos(name, nivel, imagen);
+        })
 
         divRow.appendChild(card);
 
